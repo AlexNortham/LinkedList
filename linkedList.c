@@ -1,6 +1,8 @@
-typedef struct nodeData{
-    //node data (to be overwritted)
+#include <stdio.h>
 
+typedef struct nodeData{
+    //node data (to be overwritten)
+    int i;
 }Data;
 
 typedef struct node
@@ -22,9 +24,9 @@ void freeNode( Node* nodeOut );
 void traversal(Node* node);
 
 Node* newNode(Data* data){
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    newNode->data = data;
-    newNode->next = NULL;
+    Node* new = (Node*)malloc(sizeof(Node));
+    new->data = data;
+    new->next = NULL;
 
     return new;
 }
@@ -34,8 +36,8 @@ void freeNode(Node* nodeOut){
     free(nodeOut);
 }
 
-Node addNodeAtHead(Node* head, Node* toadd){
-    toAdd->next = head;
+Node* addNodeAtHead(Node* head, Node* toadd){
+    toadd->next = head;
     return toadd;
 }
 
